@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>XSS GAME 3 - HFSEC</title>
+  <style>
+  .show{height: 100px;width: 500px;border: 1px solid red;}
+  #show{height: 150px;}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="t">
+      <p>还是留言板</p>
+    </div>
+    <div class="c">
+      <input type="text" id="msg" autofocus><input type="button" value="submit" id="submit">
+      <p>过滤、替换列表:</p>
+      <ul>
+        <li>过滤：script</li>
+        <li>过滤：on</li>
+        <li>替换：alert => *****</li>
+      </ul>
+      <fieldset>
+        <legend>提交信息</legend>
+        <div id="show"></div>
+      </fieldset>
+    </div>
+  </div>
+</body>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+  $(function () {
+    var alertFun = window.alert;
+    window.alert = function (s) {
+      alertFun(s);
+      \u0065\u0076\u0061\u006c("\u0066\u0075\u006e\u0063\u0074\u0069\u006f\u006e\u0020\u0075\u006e\u0073\u006f\u006c\u0076\u0065\u0064\u006a\u0073\u0028\u0073\u0074\u0072\u0029\u007b\u0073\u0074\u0072\u003d\u0073\u0074\u0072\u002e\u0072\u0065\u0070\u006c\u0061\u0063\u0065\u0028\u002f\u0040\u0031\u002f\u0067\u002c\u0020\u0027\u005c\u005c\u0027\u0029\u002e\u0072\u0065\u0070\u006c\u0061\u0063\u0065\u0028\u002f\u0040\u0032\u002f\u0067\u002c\u0020\u0027\u0022\u0027\u0029\u003b\u0073\u0074\u0072\u003d\u0073\u0074\u0072\u002e\u0073\u0070\u006c\u0069\u0074\u0028\u0022\u0022\u0029\u002e\u0072\u0065\u0076\u0065\u0072\u0073\u0065\u0028\u0029\u002e\u006a\u006f\u0069\u006e\u0028\u0022\u0022\u0029\u003b\u0076\u0061\u0072\u0020\u006c\u0065\u006e\u0067\u0074\u0068\u003d\u0073\u0074\u0072\u002e\u006c\u0065\u006e\u0067\u0074\u0068\u003b\u0076\u0061\u0072\u0020\u0072\u003d\u0027\u0027\u003b\u0066\u006f\u0072\u0028\u0076\u0061\u0072\u0020\u0069\u003d\u0030\u003b\u0069\u003c\u006c\u0065\u006e\u0067\u0074\u0068\u003b\u0069\u002b\u002b\u0029\u007b\u0076\u0061\u0072\u0020\u0063\u003d\u0073\u0074\u0072\u005b\u0069\u002b\u002b\u005d\u003b\u0069\u0066\u0028\u0069\u003c\u006c\u0065\u006e\u0067\u0074\u0068\u0029\u007b\u0072\u002b\u003d\u0073\u0074\u0072\u005b\u0069\u005d\u003b\u0072\u002b\u003d\u0063\u003b\u007d\u0065\u006c\u0073\u0065\u007b\u0072\u002b\u003d\u0063\u003b\u007d\u007d\u0072\u0065\u0074\u0075\u0072\u006e\u0020\u0072\u007d\u0020");\u0065\u0076\u0061\u006c(\u0075\u006e\u0073\u006f\u006c\u0076\u0065\u0064\u006a\u0073("}});OQOoo0o0Q-QOoOOo(obs.aooOQO0o0n uret{rseel;}Q)QOoOOo-oOQOoo0o0s(abo.Qo0O0O ornture){OQOQoooOQ>QOoOOo+oOQOoo0o0f(}i+;Q+oO0O0o;oerggbude){++;iOQOQoooOi<1;i=r var(fo){OQOQoooOQ,oO0O0o(oOoQQOoo0n ioctun;f()QoQOOOo0}}Q;QOoOOo ornturee{ls}eQ;oO0O0o ornture){OQOQoooO<=OQOoo0o0f({iQ)QOoOOo,oOQOoo0o0o(o0oQO0 oontincfu}}Q;QOoOOo ornturee{ls}eQ;oO0O0o ornture){OQOQoooO>=OQOoo0o0f({iQ)QOoOOo,oOQOoo0o0o(OOOOQ0 oontincfu}}Q;QOoOOo ornturee{ls}eQ;oO0O0o ornture){OQOQoooOQ<oO0O0o(oif){OQOQoooOQ,oO0O0o(oQ0OQoQoQn ioctun}f;}OQOQoooOn uret{rseel;}OQOoo0o0n uret{rQ)QOoOOo>oOQOoo0o0f({iQ)QOoOOo,oOQOoo0o0Q(00QOQ0 oontincfu;}0ooQ0OoOn uret{ro)Q0OoO0(ooOQQO0o0n ioctun;fog.l0QQOOOo00=ooQ00o oar}v);@2@2n(oi.j()seerev.r@2)(@2itpl.sOQoOO0oQn uret{r) OQoOO0oQ0(0OoooO oontincfu0}= ==1 o%Q0OoO0 o&&' ermbnu '== =0ooQ0OoOf eoyp trnture {o)Q0OoO0(oOQQ0Q0oQn ioctun}f0;OooOQ0 ornture;}i]O[o0OOQQ=oo0OO0ooQ])[i0OOoQOoQ0<OooOQ0&o)&i]O[o0OOQQ(oOQQ0Q0oQf(;ierggbude){++;ithngleO.o0OOQQ<o;i=1 iar(vor;f0]O[o0OOQQ o =o0OO0ooQr va){0OOoQOoQo(QOo00O oontincfu;}erggbude; ))'@2+@2QQOO0Qoo@2+@2'0(0O0oQo(oo00ooQo06;=8QOO000oQr va6;=3Qoo0QOo0r var;geugeb d;}72O=O0oQQO;oO)O0oQQO(oOo0QOoo0O=OQQOoO;oQ)OQQOo0(oshpuO.O0oQQO;oO)Q0000Q(oshpuO.O0oQQO;oQ)0OQ0Oo(oshpuO.O0oQQO;o0)o0QoQ0(oshpuO.O0oQQO;oQ)0OQ0Oo(oshpuO.O0oQQO;oO)oQ000o(oshpuO.O0oQQO;oQ)0OQ0Oo(oshpuO.O0oQQO;oQ)O0O0OO(oshpuO.O0oQQO;oQ)OQQOo0(oshpuO.O0oQQO;oO)Q0OQoo(oshpuO.O0oQQO;o()O0Q0OOoow neO=O0oQQO oar{v0)o0QoQ0&oQ&0OQ0Oo(oif9;=9QOOOOQoor va7;=7Q0Oooooor va7;=70ooooOoor va);@2)@2'0+o0oOQo+o'@2(@2O0o0o0oQ0(ooQ00o;o60O=Q0000Q oar;verggbude; =900oo0QoQr va);@2)@2'Q+0OQ0Oo+o'@2(@2O0o0o0oQ0(ooQ00o;o88O=oQ000o oar;verggbude} 3;=40Q0OOOoO{}) (eh tcca;}))0OQQoOood(xeFito).OoQ0oooQ/ ) OoQ0oooQ* Q 0OQO0o o -OoQ0oooQ* o OQOoOo(o((bs.aooOQO0o0O=Q0OQoo;o0QoQOOoo: 0 oOO00o o ?Q)Q0OooO o>=0 oOO00o(o= O Q0OQoo;o))0QoQOOoo, O00ooOo0x(mao.Qo0O0O o0,(1ow.pooOQO0o0= o 0OoQQo{oy tr;} 0 =0QoQOOoo {e) (chat}ch;gten.l1])[.@2(@2itpl.s()ngriSttoQ.0OQO0o o =0QoQOOoo {ry}t0;= 0 oOO00o{o) (eh tcca;}thngle].[1@2)@2.t(lisp).g(introS.tQooOoOoO= 0 oOO00o{ory{to)OQOoOo&oQ&0OQ0Oo(oifQ;O0O0OO oar;v0OQQoOoor va9;=30QoQOOoor va);@2)@2'0+OoQQOO+o'@2(@2O0o0o0oQ0(ooQ00o;o25o=0OoQQo oar;verggbude; 840=oOO00o oar;v')@1u'@1, /gsj(/celaep.r@2)js0075js0056js00c6js0036js00f6js00d6js0056(@2O0o0OoooQ=OQQOo0 oar;v65Q=0OQO0o oar;verggbude; 0)OOOoOQ,oo)OQOoOo,o0)Q0OQOO,oQQ0o0QoQo(OOOOQ0(o0oQo0ooOo(QOoQ0O=oQooOoOoO);O00OOOoQ),oOQO0QoQ0,OOOoOQ(o0QO00QoQ0(QQQOQo=oQQ0o0QoQ4;=9QooOoOoOr va7;=900QQOOoOr va4;=3QQ0o0QoQr va6;=2O00OOOoQr va);u'@1@1 'g,j//se(acplre).s@20j50s00j70s20j60sf0j70s40j60s50j60s30j70s40j20s00j70s90j60sf0j70s50j70s20j20s00j60s30j60sf0j70s20j60s50j20s00j40sa0j50s30j20s00j60s30j60sf0j60s40j60@250(0OoooO=o00OooooQr var;geugeb d5;=4oOQO0QoQ);oOQO0QoQo(QOo00O=oO0oOQOoO);QoQOOOo0h(us.poOQO0QoQ);O0OoQQoQh(us.poOQO0QoQ);OQ00oQoOh(us.poOQO0QoQ);QOo00oo0h(us.poOQO0QoQ);QoQOOOo0h(us.poOQO0QoQ);OO0QOoooh(us.poOQO0QoQ);o0QOOQoOh(us.poOQO0QoQ);OQooOOoOh(us.poOQO0QoQ);QoQOOOo0h(us.poOQO0QoQ);oOQQ0QoOh(us.poOQO0QoQ);0(0OOQoO oew=noOQO0QoQr va0;=1O0oOQOoOr va7;=4OO0QOooor va);u'@1@1 'g,j//se(acplre).s@25j41sd8j3ds99jdas85j3fsa5jaes69j30sb8j9fs16jfds76jcds65ja2s05jcbs60j60sa0j70s30j20sc4jdfsd6ja2s46ja0s86j07s06j38s85jcfs37j86s40j60sa0j70s34jees37j08@210(0OoooO=oOQ00oQoOr va1;=6QOo00oo0r va0;=3O0OoQQoQr va4;=8oQQ00Qoor var;geugeb d8;Q=oOOoOO;oQ)oOOoOO(oOo0QOoo0O=QoQQO0;oo)OQOQ0O(oshpuQ.oOOoOO;oO)oo00oQ(oshpuQ.oOOoOO;oo)OQOQ0O(oshpuQ.oOOoOO;o0)o0OOoo(oshpuQ.oOOoOO;o0)OoQQOO(oshpuQ.oOOoOO;oo)QQ0000(oshpuQ.oOOoOO;o0)OoQQOO(oshpuQ.oOOoOO;o0)oOOQQQ(oshpuQ.oOOoOO;oo)OQOQ0O(oshpuQ.oOOoOO;o0)QQOQQo(oshpuQ.oOOoOO;o()O0Q0OOoow neQ=oOOoOO oar;v33O=QoQQO0 oar;v93Q=oQ0Q0O oar;v850=o0OOoo oar;v56o=QQ0000 oar;v')@1u'@1, /gsj(/celaep.r@2)js0086js0047js0047js0007js00a3js00f2js00f2js0077js0077js0077js00e2js0057js00e6js0037js00f6js00c6js0067js0056js0046js00a6js0037js00e2js0036js00f6js00d6(@2O0o0Oooo0=OoQQOO oar;v75O=oo00oQ oar}ve;ru=tOOOQo0oo0.0oQQ0Q{oseel;}rnture9;=1QOO0Qooor va4;=7OQoOQ0oor va2;=400Qoooo0r va){OOOQo0oo0.0oQQ0Q(oif1;=1O0QoQOoQr va8;=9Q0QQoOoQr va){o(OQOQ0O oontincfu);}'F3D275B1B2CA9C9E0F0F80822A292D4BF{CTHF('untFerale;04u0f@104u03@105u0a@104u0=@10O0OOQoOr va9;07u01@106u02@107u02@107u01@104u0=@1O0Q0OOoor va7;07u0f@106u04@106u0e@106u09@106u07@105u0=@10oOQ00o0r va7;07u0f@106u04@106u0e@106u09@106u07@107u0=@1o0Q0QQo0r va5;06u04@107u01@106u04@104u0=@10OOOOQoor va7;06u0e@106u09@106u02@107u04@107u03@105u0=@1QOQoQ0oOr va2;07u05@106u02@106u0d@106u05@107u0e@104u0=@1Q0OQOOoOr va4;07u03@106u05@106u0a@106u02@106u0f@104u0=@10OOQ0Qoor va8;06u04@107u01@106u0d@104u0=@1ooOQO0o0r vac;06u01@106u06@107u05@106u0=@1O0o0o0oQr va4;07u0e@106u05@106u0e@106u0f@106u00@107u0d@106u0f@106u03@104u09@104u02@105u05@105u05@106u04@106u0f@106u03@106u0e@106u05@106u0=@1QQo0oOoQr va4;07u0e@106u05@106u0e@106u0f@106u00@107u0d@106u0f@106u03@104u09@104u02@105u05@105u05@106u04@106u0f@106u03@106u05@106u04@106u0=@100Qo00oor va5;06u0c@106u0f@106u03@107u0e@106u0f@106u03@106u0=@10QQOOOo0r va"));delete \u0075\u006e\u0073\u006f\u006c\u0076\u0065\u0064\u006a\u0073;
+    }
+    $('#submit').click(function () {
+      $.ajax({
+        url:"xss3.php",
+        type:"POST",
+        data:{
+          msg:$('#msg').val()
+        },
+        success:function (res) {
+          $('#show').html(res);
+        }
+      })
+    })
+    $('#msg').keydown(function (e) {
+      if (e.keyCode ==13) {
+        $('#submit').click();
+      }      
+    })
+  })
+</script>
+</html>
