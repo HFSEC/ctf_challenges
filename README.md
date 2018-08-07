@@ -1,2 +1,2 @@
 # ctf_challenges
-challenges created by hfesc
+challenges created by hfsec
